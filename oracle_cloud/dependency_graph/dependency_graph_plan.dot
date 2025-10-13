@@ -1,0 +1,34 @@
+digraph {
+	rankdir = "LR"
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] data.oci_identity_availability_domains.domains (expand)" [label = "data.oci_identity_availability_domains.domains", shape = "box"]
+		"[root] oci_container_instances_container_instance.shr_test (expand)" [label = "oci_container_instances_container_instance.shr_test", shape = "box"]
+		"[root] oci_core_internet_gateway.shr_test (expand)" [label = "oci_core_internet_gateway.shr_test", shape = "box"]
+		"[root] oci_core_route_table.shr_test (expand)" [label = "oci_core_route_table.shr_test", shape = "box"]
+		"[root] oci_core_security_list.shr_test (expand)" [label = "oci_core_security_list.shr_test", shape = "box"]
+		"[root] oci_core_subnet.shr_test (expand)" [label = "oci_core_subnet.shr_test", shape = "box"]
+		"[root] oci_core_vcn.shr_test (expand)" [label = "oci_core_vcn.shr_test", shape = "box"]
+		"[root] oci_identity_compartment.shr_test (expand)" [label = "oci_identity_compartment.shr_test", shape = "box"]
+		"[root] provider[\"registry.terraform.io/oracle/oci\"]" [label = "provider[\"registry.terraform.io/oracle/oci\"]", shape = "diamond"]
+		"[root] var.auth_config" [label = "var.auth_config", shape = "note"]
+		"[root] var.trocco_registration_token" [label = "var.trocco_registration_token", shape = "note"]
+		"[root] var.trocco_shr_image_url" [label = "var.trocco_shr_image_url", shape = "note"]
+		"[root] data.oci_identity_availability_domains.domains (expand)" -> "[root] provider[\"registry.terraform.io/oracle/oci\"]"
+		"[root] oci_container_instances_container_instance.shr_test (expand)" -> "[root] data.oci_identity_availability_domains.domains (expand)"
+		"[root] oci_container_instances_container_instance.shr_test (expand)" -> "[root] oci_core_subnet.shr_test (expand)"
+		"[root] oci_container_instances_container_instance.shr_test (expand)" -> "[root] var.trocco_registration_token"
+		"[root] oci_container_instances_container_instance.shr_test (expand)" -> "[root] var.trocco_shr_image_url"
+		"[root] oci_core_internet_gateway.shr_test (expand)" -> "[root] oci_core_vcn.shr_test (expand)"
+		"[root] oci_core_route_table.shr_test (expand)" -> "[root] oci_core_internet_gateway.shr_test (expand)"
+		"[root] oci_core_security_list.shr_test (expand)" -> "[root] oci_core_vcn.shr_test (expand)"
+		"[root] oci_core_subnet.shr_test (expand)" -> "[root] oci_core_route_table.shr_test (expand)"
+		"[root] oci_core_subnet.shr_test (expand)" -> "[root] oci_core_security_list.shr_test (expand)"
+		"[root] oci_core_vcn.shr_test (expand)" -> "[root] oci_identity_compartment.shr_test (expand)"
+		"[root] oci_identity_compartment.shr_test (expand)" -> "[root] provider[\"registry.terraform.io/oracle/oci\"]"
+		"[root] provider[\"registry.terraform.io/oracle/oci\"] (close)" -> "[root] oci_container_instances_container_instance.shr_test (expand)"
+		"[root] provider[\"registry.terraform.io/oracle/oci\"]" -> "[root] var.auth_config"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/oracle/oci\"] (close)"
+	}
+}

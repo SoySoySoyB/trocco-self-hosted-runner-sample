@@ -1,0 +1,20 @@
+digraph G {
+  rankdir = "LR";
+  node [shape = rect, fontname = "sans-serif"];
+  "data.oci_identity_availability_domains.domains" [label="data.oci_identity_availability_domains.domains"];
+  "oci_container_instances_container_instance.shr_test" [label="oci_container_instances_container_instance.shr_test"];
+  "oci_core_internet_gateway.shr_test" [label="oci_core_internet_gateway.shr_test"];
+  "oci_core_route_table.shr_test" [label="oci_core_route_table.shr_test"];
+  "oci_core_security_list.shr_test" [label="oci_core_security_list.shr_test"];
+  "oci_core_subnet.shr_test" [label="oci_core_subnet.shr_test"];
+  "oci_core_vcn.shr_test" [label="oci_core_vcn.shr_test"];
+  "oci_identity_compartment.shr_test" [label="oci_identity_compartment.shr_test"];
+  "oci_container_instances_container_instance.shr_test" -> "data.oci_identity_availability_domains.domains";
+  "oci_container_instances_container_instance.shr_test" -> "oci_core_subnet.shr_test";
+  "oci_core_internet_gateway.shr_test" -> "oci_core_vcn.shr_test";
+  "oci_core_route_table.shr_test" -> "oci_core_internet_gateway.shr_test";
+  "oci_core_security_list.shr_test" -> "oci_core_vcn.shr_test";
+  "oci_core_subnet.shr_test" -> "oci_core_route_table.shr_test";
+  "oci_core_subnet.shr_test" -> "oci_core_security_list.shr_test";
+  "oci_core_vcn.shr_test" -> "oci_identity_compartment.shr_test";
+}

@@ -1,0 +1,35 @@
+digraph G {
+  rankdir = "LR";
+  node [shape = rect, fontname = "sans-serif"];
+  "aws_cloudwatch_log_group.trocco_self_hosted_runner" [label="aws_cloudwatch_log_group.trocco_self_hosted_runner"];
+  "aws_ecs_cluster.trocco_self_hosted_runner" [label="aws_ecs_cluster.trocco_self_hosted_runner"];
+  "aws_ecs_service.trocco_self_hosted_runner" [label="aws_ecs_service.trocco_self_hosted_runner"];
+  "aws_ecs_task_definition.trocco_self_hosted_runner" [label="aws_ecs_task_definition.trocco_self_hosted_runner"];
+  "aws_iam_policy.trocco_self_hosted_runner" [label="aws_iam_policy.trocco_self_hosted_runner"];
+  "aws_iam_role.trocco_self_hosted_runner" [label="aws_iam_role.trocco_self_hosted_runner"];
+  "aws_iam_role_policy_attachment.trocco_self_hosted_runner" [label="aws_iam_role_policy_attachment.trocco_self_hosted_runner"];
+  "aws_internet_gateway.trocco_self_hosted_runner" [label="aws_internet_gateway.trocco_self_hosted_runner"];
+  "aws_route_table.public" [label="aws_route_table.public"];
+  "aws_route_table_association.public" [label="aws_route_table_association.public"];
+  "aws_security_group.trocco_self_hosted_runner" [label="aws_security_group.trocco_self_hosted_runner"];
+  "aws_ssm_parameter.trocco_registration_token" [label="aws_ssm_parameter.trocco_registration_token"];
+  "aws_subnet.trocco_self_hosted_runner" [label="aws_subnet.trocco_self_hosted_runner"];
+  "aws_vpc.trocco_self_hosted_runner" [label="aws_vpc.trocco_self_hosted_runner"];
+  "aws_ecs_service.trocco_self_hosted_runner" -> "aws_ecs_cluster.trocco_self_hosted_runner";
+  "aws_ecs_service.trocco_self_hosted_runner" -> "aws_ecs_task_definition.trocco_self_hosted_runner";
+  "aws_ecs_service.trocco_self_hosted_runner" -> "aws_security_group.trocco_self_hosted_runner";
+  "aws_ecs_service.trocco_self_hosted_runner" -> "aws_subnet.trocco_self_hosted_runner";
+  "aws_ecs_task_definition.trocco_self_hosted_runner" -> "aws_cloudwatch_log_group.trocco_self_hosted_runner";
+  "aws_ecs_task_definition.trocco_self_hosted_runner" -> "aws_iam_role.trocco_self_hosted_runner";
+  "aws_ecs_task_definition.trocco_self_hosted_runner" -> "aws_ssm_parameter.trocco_registration_token";
+  "aws_iam_policy.trocco_self_hosted_runner" -> "aws_cloudwatch_log_group.trocco_self_hosted_runner";
+  "aws_iam_policy.trocco_self_hosted_runner" -> "aws_ssm_parameter.trocco_registration_token";
+  "aws_iam_role_policy_attachment.trocco_self_hosted_runner" -> "aws_iam_policy.trocco_self_hosted_runner";
+  "aws_iam_role_policy_attachment.trocco_self_hosted_runner" -> "aws_iam_role.trocco_self_hosted_runner";
+  "aws_internet_gateway.trocco_self_hosted_runner" -> "aws_vpc.trocco_self_hosted_runner";
+  "aws_route_table.public" -> "aws_internet_gateway.trocco_self_hosted_runner";
+  "aws_route_table_association.public" -> "aws_route_table.public";
+  "aws_route_table_association.public" -> "aws_subnet.trocco_self_hosted_runner";
+  "aws_security_group.trocco_self_hosted_runner" -> "aws_vpc.trocco_self_hosted_runner";
+  "aws_subnet.trocco_self_hosted_runner" -> "aws_vpc.trocco_self_hosted_runner";
+}

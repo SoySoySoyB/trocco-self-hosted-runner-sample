@@ -1,0 +1,31 @@
+digraph G {
+  rankdir = "LR";
+  node [shape = rect, fontname = "sans-serif"];
+  "azurerm_container_app.shr_test" [label="azurerm_container_app.shr_test"];
+  "azurerm_container_app_environment.shr_test" [label="azurerm_container_app_environment.shr_test"];
+  "azurerm_container_group.shr_test" [label="azurerm_container_group.shr_test"];
+  "azurerm_log_analytics_workspace.shr_test" [label="azurerm_log_analytics_workspace.shr_test"];
+  "azurerm_network_security_group.shr_test" [label="azurerm_network_security_group.shr_test"];
+  "azurerm_resource_group.shr_test" [label="azurerm_resource_group.shr_test"];
+  "azurerm_resource_provider_registration.container_apps" [label="azurerm_resource_provider_registration.container_apps"];
+  "azurerm_subnet.container_apps" [label="azurerm_subnet.container_apps"];
+  "azurerm_subnet.container_instances" [label="azurerm_subnet.container_instances"];
+  "azurerm_subnet_network_security_group_association.container_apps" [label="azurerm_subnet_network_security_group_association.container_apps"];
+  "azurerm_subnet_network_security_group_association.container_instance" [label="azurerm_subnet_network_security_group_association.container_instance"];
+  "azurerm_virtual_network.shr_test" [label="azurerm_virtual_network.shr_test"];
+  "azurerm_container_app.shr_test" -> "azurerm_container_app_environment.shr_test";
+  "azurerm_container_app_environment.shr_test" -> "azurerm_log_analytics_workspace.shr_test";
+  "azurerm_container_app_environment.shr_test" -> "azurerm_resource_provider_registration.container_apps";
+  "azurerm_container_app_environment.shr_test" -> "azurerm_subnet_network_security_group_association.container_apps";
+  "azurerm_container_group.shr_test" -> "azurerm_log_analytics_workspace.shr_test";
+  "azurerm_container_group.shr_test" -> "azurerm_subnet_network_security_group_association.container_instance";
+  "azurerm_log_analytics_workspace.shr_test" -> "azurerm_resource_group.shr_test";
+  "azurerm_network_security_group.shr_test" -> "azurerm_resource_group.shr_test";
+  "azurerm_subnet.container_apps" -> "azurerm_virtual_network.shr_test";
+  "azurerm_subnet.container_instances" -> "azurerm_virtual_network.shr_test";
+  "azurerm_subnet_network_security_group_association.container_apps" -> "azurerm_network_security_group.shr_test";
+  "azurerm_subnet_network_security_group_association.container_apps" -> "azurerm_subnet.container_apps";
+  "azurerm_subnet_network_security_group_association.container_instance" -> "azurerm_network_security_group.shr_test";
+  "azurerm_subnet_network_security_group_association.container_instance" -> "azurerm_subnet.container_instances";
+  "azurerm_virtual_network.shr_test" -> "azurerm_resource_group.shr_test";
+}

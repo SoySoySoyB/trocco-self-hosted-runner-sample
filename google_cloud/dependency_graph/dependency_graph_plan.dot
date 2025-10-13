@@ -1,0 +1,194 @@
+digraph {
+	rankdir = "LR"
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] data.archive_file.function_source_archive (expand)" [label = "data.archive_file.function_source_archive", shape = "box"]
+		"[root] google_api_gateway_api.trocco_self_hosted_runner__container_manager_api (expand)" [label = "google_api_gateway_api.trocco_self_hosted_runner__container_manager_api", shape = "box"]
+		"[root] google_api_gateway_api_config.trocco_self_hosted_runner__container_manager_api (expand)" [label = "google_api_gateway_api_config.trocco_self_hosted_runner__container_manager_api", shape = "box"]
+		"[root] google_api_gateway_gateway.trocco_self_hosted_runner__container_manager_api (expand)" [label = "google_api_gateway_gateway.trocco_self_hosted_runner__container_manager_api", shape = "box"]
+		"[root] google_apikeys_key.api_key (expand)" [label = "google_apikeys_key.api_key", shape = "box"]
+		"[root] google_apikeys_key.api_key_restricted (expand)" [label = "google_apikeys_key.api_key_restricted", shape = "box"]
+		"[root] google_artifact_registry_repository.trocco_self_hosted_runner (expand)" [label = "google_artifact_registry_repository.trocco_self_hosted_runner", shape = "box"]
+		"[root] google_cloud_run_v2_job.trocco_self_hosted_runner (expand)" [label = "google_cloud_run_v2_job.trocco_self_hosted_runner", shape = "box"]
+		"[root] google_cloud_run_v2_service.trocco_self_hosted_runner (expand)" [label = "google_cloud_run_v2_service.trocco_self_hosted_runner", shape = "box"]
+		"[root] google_cloud_run_v2_worker_pool.trocco_self_hosted_runner (expand)" [label = "google_cloud_run_v2_worker_pool.trocco_self_hosted_runner", shape = "box"]
+		"[root] google_cloud_scheduler_job.trocco_self_hosted_runner__container_scheduler__service__end (expand)" [label = "google_cloud_scheduler_job.trocco_self_hosted_runner__container_scheduler__service__end", shape = "box"]
+		"[root] google_cloud_scheduler_job.trocco_self_hosted_runner__container_scheduler__service__start (expand)" [label = "google_cloud_scheduler_job.trocco_self_hosted_runner__container_scheduler__service__start", shape = "box"]
+		"[root] google_cloud_scheduler_job.trocco_self_hosted_runner__container_scheduler__worker_pool__end (expand)" [label = "google_cloud_scheduler_job.trocco_self_hosted_runner__container_scheduler__worker_pool__end", shape = "box"]
+		"[root] google_cloud_scheduler_job.trocco_self_hosted_runner__container_scheduler__worker_pool__start (expand)" [label = "google_cloud_scheduler_job.trocco_self_hosted_runner__container_scheduler__worker_pool__start", shape = "box"]
+		"[root] google_cloudfunctions2_function.trocco_self_hosted_runner__container_manager (expand)" [label = "google_cloudfunctions2_function.trocco_self_hosted_runner__container_manager", shape = "box"]
+		"[root] google_cloudfunctions2_function_iam_member.invoker (expand)" [label = "google_cloudfunctions2_function_iam_member.invoker", shape = "box"]
+		"[root] google_compute_firewall.cloud_run_egress (expand)" [label = "google_compute_firewall.cloud_run_egress", shape = "box"]
+		"[root] google_compute_firewall.cloud_run_to_cloud_sql (expand)" [label = "google_compute_firewall.cloud_run_to_cloud_sql", shape = "box"]
+		"[root] google_compute_firewall.deny_all_egress (expand)" [label = "google_compute_firewall.deny_all_egress", shape = "box"]
+		"[root] google_compute_global_address.mysql (expand)" [label = "google_compute_global_address.mysql", shape = "box"]
+		"[root] google_compute_network.vpc (expand)" [label = "google_compute_network.vpc", shape = "box"]
+		"[root] google_compute_route.internet (expand)" [label = "google_compute_route.internet", shape = "box"]
+		"[root] google_compute_router.router (expand)" [label = "google_compute_router.router", shape = "box"]
+		"[root] google_compute_router_nat.nat (expand)" [label = "google_compute_router_nat.nat", shape = "box"]
+		"[root] google_compute_subnetwork.subnet (expand)" [label = "google_compute_subnetwork.subnet", shape = "box"]
+		"[root] google_project_iam_member.self_hosted_runner__container_manager (expand)" [label = "google_project_iam_member.self_hosted_runner__container_manager", shape = "box"]
+		"[root] google_project_iam_member.trocco__artifact_registry_reader (expand)" [label = "google_project_iam_member.trocco__artifact_registry_reader", shape = "box"]
+		"[root] google_project_iam_member.trocco_self_hosted_runner__container_manager_api (expand)" [label = "google_project_iam_member.trocco_self_hosted_runner__container_manager_api", shape = "box"]
+		"[root] google_project_iam_member.trocco_self_hosted_runner__container_scheduler (expand)" [label = "google_project_iam_member.trocco_self_hosted_runner__container_scheduler", shape = "box"]
+		"[root] google_project_iam_member.trocco_self_hosted_runner__container_scheduler__service (expand)" [label = "google_project_iam_member.trocco_self_hosted_runner__container_scheduler__service", shape = "box"]
+		"[root] google_project_service.api_gateway (expand)" [label = "google_project_service.api_gateway", shape = "box"]
+		"[root] google_project_service.api_gateway__cloud_run_functions (expand)" [label = "google_project_service.api_gateway__cloud_run_functions", shape = "box"]
+		"[root] google_project_service.cloud_scheduler__workflows (expand)" [label = "google_project_service.cloud_scheduler__workflows", shape = "box"]
+		"[root] google_project_service.database (expand)" [label = "google_project_service.database", shape = "box"]
+		"[root] google_project_service.main (expand)" [label = "google_project_service.main", shape = "box"]
+		"[root] google_secret_manager_secret.trocco_registration_token (expand)" [label = "google_secret_manager_secret.trocco_registration_token", shape = "box"]
+		"[root] google_secret_manager_secret_iam_member.trocco_registration_token (expand)" [label = "google_secret_manager_secret_iam_member.trocco_registration_token", shape = "box"]
+		"[root] google_secret_manager_secret_version.trocco_registration_token (expand)" [label = "google_secret_manager_secret_version.trocco_registration_token", shape = "box"]
+		"[root] google_service_account.trocco_self_hosted_runner (expand)" [label = "google_service_account.trocco_self_hosted_runner", shape = "box"]
+		"[root] google_service_account.trocco_self_hosted_runner__container_manager (expand)" [label = "google_service_account.trocco_self_hosted_runner__container_manager", shape = "box"]
+		"[root] google_service_account.trocco_self_hosted_runner__container_manager_api (expand)" [label = "google_service_account.trocco_self_hosted_runner__container_manager_api", shape = "box"]
+		"[root] google_service_account.trocco_self_hosted_runner__container_scheduler (expand)" [label = "google_service_account.trocco_self_hosted_runner__container_scheduler", shape = "box"]
+		"[root] google_service_networking_connection.mysql (expand)" [label = "google_service_networking_connection.mysql", shape = "box"]
+		"[root] google_sql_database.shr_test (expand)" [label = "google_sql_database.shr_test", shape = "box"]
+		"[root] google_sql_database_instance.mysql (expand)" [label = "google_sql_database_instance.mysql", shape = "box"]
+		"[root] google_sql_user.shr_test (expand)" [label = "google_sql_user.shr_test", shape = "box"]
+		"[root] google_storage_bucket.function_source (expand)" [label = "google_storage_bucket.function_source", shape = "box"]
+		"[root] google_storage_bucket_object.function_source (expand)" [label = "google_storage_bucket_object.function_source", shape = "box"]
+		"[root] google_workflows_workflow.trocco_self_hosted_runner__container_scheduler__service (expand)" [label = "google_workflows_workflow.trocco_self_hosted_runner__container_scheduler__service", shape = "box"]
+		"[root] google_workflows_workflow.trocco_self_hosted_runner__container_scheduler__worker_pool (expand)" [label = "google_workflows_workflow.trocco_self_hosted_runner__container_scheduler__worker_pool", shape = "box"]
+		"[root] local_sensitive_file.curl_api (expand)" [label = "local_sensitive_file.curl_api", shape = "box"]
+		"[root] local_sensitive_file.db_connection_config (expand)" [label = "local_sensitive_file.db_connection_config", shape = "box"]
+		"[root] local_sensitive_file.trocco_request_config (expand)" [label = "local_sensitive_file.trocco_request_config", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/archive\"]" [label = "provider[\"registry.terraform.io/hashicorp/archive\"]", shape = "diamond"]
+		"[root] provider[\"registry.terraform.io/hashicorp/google-beta\"]" [label = "provider[\"registry.terraform.io/hashicorp/google-beta\"]", shape = "diamond"]
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"]" [label = "provider[\"registry.terraform.io/hashicorp/google\"]", shape = "diamond"]
+		"[root] provider[\"registry.terraform.io/hashicorp/local\"]" [label = "provider[\"registry.terraform.io/hashicorp/local\"]", shape = "diamond"]
+		"[root] provider[\"registry.terraform.io/hashicorp/random\"]" [label = "provider[\"registry.terraform.io/hashicorp/random\"]", shape = "diamond"]
+		"[root] random_password.db_user (expand)" [label = "random_password.db_user", shape = "box"]
+		"[root] random_uuid.bucket_suffix (expand)" [label = "random_uuid.bucket_suffix", shape = "box"]
+		"[root] var.default_location" [label = "var.default_location", shape = "note"]
+		"[root] var.project_id" [label = "var.project_id", shape = "note"]
+		"[root] var.tested_by" [label = "var.tested_by", shape = "note"]
+		"[root] var.trocco_registration_token" [label = "var.trocco_registration_token", shape = "note"]
+		"[root] var.trocco_shr_image_path" [label = "var.trocco_shr_image_path", shape = "note"]
+		"[root] data.archive_file.function_source_archive (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/archive\"]"
+		"[root] google_api_gateway_api.trocco_self_hosted_runner__container_manager_api (expand)" -> "[root] google_cloudfunctions2_function.trocco_self_hosted_runner__container_manager (expand)"
+		"[root] google_api_gateway_api.trocco_self_hosted_runner__container_manager_api (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/google-beta\"]"
+		"[root] google_api_gateway_api_config.trocco_self_hosted_runner__container_manager_api (expand)" -> "[root] google_api_gateway_api.trocco_self_hosted_runner__container_manager_api (expand)"
+		"[root] google_api_gateway_gateway.trocco_self_hosted_runner__container_manager_api (expand)" -> "[root] google_api_gateway_api_config.trocco_self_hosted_runner__container_manager_api (expand)"
+		"[root] google_apikeys_key.api_key (expand)" -> "[root] google_project_service.api_gateway (expand)"
+		"[root] google_apikeys_key.api_key_restricted (expand)" -> "[root] google_project_service.api_gateway (expand)"
+		"[root] google_artifact_registry_repository.trocco_self_hosted_runner (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/google\"]"
+		"[root] google_cloud_run_v2_job.trocco_self_hosted_runner (expand)" -> "[root] google_artifact_registry_repository.trocco_self_hosted_runner (expand)"
+		"[root] google_cloud_run_v2_job.trocco_self_hosted_runner (expand)" -> "[root] google_compute_subnetwork.subnet (expand)"
+		"[root] google_cloud_run_v2_job.trocco_self_hosted_runner (expand)" -> "[root] google_secret_manager_secret_iam_member.trocco_registration_token (expand)"
+		"[root] google_cloud_run_v2_job.trocco_self_hosted_runner (expand)" -> "[root] var.trocco_shr_image_path"
+		"[root] google_cloud_run_v2_service.trocco_self_hosted_runner (expand)" -> "[root] google_artifact_registry_repository.trocco_self_hosted_runner (expand)"
+		"[root] google_cloud_run_v2_service.trocco_self_hosted_runner (expand)" -> "[root] google_compute_subnetwork.subnet (expand)"
+		"[root] google_cloud_run_v2_service.trocco_self_hosted_runner (expand)" -> "[root] google_secret_manager_secret_iam_member.trocco_registration_token (expand)"
+		"[root] google_cloud_run_v2_service.trocco_self_hosted_runner (expand)" -> "[root] var.trocco_shr_image_path"
+		"[root] google_cloud_run_v2_worker_pool.trocco_self_hosted_runner (expand)" -> "[root] google_artifact_registry_repository.trocco_self_hosted_runner (expand)"
+		"[root] google_cloud_run_v2_worker_pool.trocco_self_hosted_runner (expand)" -> "[root] google_compute_subnetwork.subnet (expand)"
+		"[root] google_cloud_run_v2_worker_pool.trocco_self_hosted_runner (expand)" -> "[root] google_secret_manager_secret_iam_member.trocco_registration_token (expand)"
+		"[root] google_cloud_run_v2_worker_pool.trocco_self_hosted_runner (expand)" -> "[root] var.trocco_shr_image_path"
+		"[root] google_cloud_scheduler_job.trocco_self_hosted_runner__container_scheduler__service__end (expand)" -> "[root] google_workflows_workflow.trocco_self_hosted_runner__container_scheduler__service (expand)"
+		"[root] google_cloud_scheduler_job.trocco_self_hosted_runner__container_scheduler__service__start (expand)" -> "[root] google_workflows_workflow.trocco_self_hosted_runner__container_scheduler__service (expand)"
+		"[root] google_cloud_scheduler_job.trocco_self_hosted_runner__container_scheduler__worker_pool__end (expand)" -> "[root] google_workflows_workflow.trocco_self_hosted_runner__container_scheduler__worker_pool (expand)"
+		"[root] google_cloud_scheduler_job.trocco_self_hosted_runner__container_scheduler__worker_pool__start (expand)" -> "[root] google_workflows_workflow.trocco_self_hosted_runner__container_scheduler__worker_pool (expand)"
+		"[root] google_cloudfunctions2_function.trocco_self_hosted_runner__container_manager (expand)" -> "[root] google_cloud_run_v2_job.trocco_self_hosted_runner (expand)"
+		"[root] google_cloudfunctions2_function.trocco_self_hosted_runner__container_manager (expand)" -> "[root] google_service_account.trocco_self_hosted_runner__container_manager (expand)"
+		"[root] google_cloudfunctions2_function.trocco_self_hosted_runner__container_manager (expand)" -> "[root] google_storage_bucket_object.function_source (expand)"
+		"[root] google_cloudfunctions2_function_iam_member.invoker (expand)" -> "[root] google_cloudfunctions2_function.trocco_self_hosted_runner__container_manager (expand)"
+		"[root] google_cloudfunctions2_function_iam_member.invoker (expand)" -> "[root] google_service_account.trocco_self_hosted_runner__container_manager_api (expand)"
+		"[root] google_compute_firewall.cloud_run_egress (expand)" -> "[root] google_compute_network.vpc (expand)"
+		"[root] google_compute_firewall.cloud_run_egress (expand)" -> "[root] google_service_account.trocco_self_hosted_runner (expand)"
+		"[root] google_compute_firewall.cloud_run_to_cloud_sql (expand)" -> "[root] google_compute_global_address.mysql (expand)"
+		"[root] google_compute_firewall.cloud_run_to_cloud_sql (expand)" -> "[root] google_service_account.trocco_self_hosted_runner (expand)"
+		"[root] google_compute_firewall.deny_all_egress (expand)" -> "[root] google_compute_network.vpc (expand)"
+		"[root] google_compute_global_address.mysql (expand)" -> "[root] google_compute_subnetwork.subnet (expand)"
+		"[root] google_compute_global_address.mysql (expand)" -> "[root] google_project_service.database (expand)"
+		"[root] google_compute_network.vpc (expand)" -> "[root] google_project_service.main (expand)"
+		"[root] google_compute_route.internet (expand)" -> "[root] google_compute_network.vpc (expand)"
+		"[root] google_compute_router.router (expand)" -> "[root] google_compute_network.vpc (expand)"
+		"[root] google_compute_router_nat.nat (expand)" -> "[root] google_compute_router.router (expand)"
+		"[root] google_compute_subnetwork.subnet (expand)" -> "[root] google_compute_network.vpc (expand)"
+		"[root] google_project_iam_member.self_hosted_runner__container_manager (expand)" -> "[root] google_service_account.trocco_self_hosted_runner__container_manager (expand)"
+		"[root] google_project_iam_member.trocco__artifact_registry_reader (expand)" -> "[root] google_service_account.trocco_self_hosted_runner (expand)"
+		"[root] google_project_iam_member.trocco_self_hosted_runner__container_manager_api (expand)" -> "[root] google_service_account.trocco_self_hosted_runner__container_manager_api (expand)"
+		"[root] google_project_iam_member.trocco_self_hosted_runner__container_scheduler (expand)" -> "[root] google_service_account.trocco_self_hosted_runner__container_scheduler (expand)"
+		"[root] google_project_iam_member.trocco_self_hosted_runner__container_scheduler__service (expand)" -> "[root] google_service_account.trocco_self_hosted_runner__container_scheduler (expand)"
+		"[root] google_project_service.api_gateway (expand)" -> "[root] google_api_gateway_api.trocco_self_hosted_runner__container_manager_api (expand)"
+		"[root] google_project_service.api_gateway__cloud_run_functions (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/google\"]"
+		"[root] google_project_service.cloud_scheduler__workflows (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/google\"]"
+		"[root] google_project_service.database (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/google\"]"
+		"[root] google_project_service.main (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/google\"]"
+		"[root] google_secret_manager_secret.trocco_registration_token (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/google\"]"
+		"[root] google_secret_manager_secret_iam_member.trocco_registration_token (expand)" -> "[root] google_secret_manager_secret.trocco_registration_token (expand)"
+		"[root] google_secret_manager_secret_iam_member.trocco_registration_token (expand)" -> "[root] google_service_account.trocco_self_hosted_runner (expand)"
+		"[root] google_secret_manager_secret_version.trocco_registration_token (expand)" -> "[root] google_secret_manager_secret.trocco_registration_token (expand)"
+		"[root] google_secret_manager_secret_version.trocco_registration_token (expand)" -> "[root] var.trocco_registration_token"
+		"[root] google_service_account.trocco_self_hosted_runner (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/google\"]"
+		"[root] google_service_account.trocco_self_hosted_runner__container_manager (expand)" -> "[root] google_project_service.api_gateway__cloud_run_functions (expand)"
+		"[root] google_service_account.trocco_self_hosted_runner__container_manager_api (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/google\"]"
+		"[root] google_service_account.trocco_self_hosted_runner__container_scheduler (expand)" -> "[root] google_project_service.cloud_scheduler__workflows (expand)"
+		"[root] google_service_networking_connection.mysql (expand)" -> "[root] google_compute_global_address.mysql (expand)"
+		"[root] google_sql_database.shr_test (expand)" -> "[root] google_sql_database_instance.mysql (expand)"
+		"[root] google_sql_database_instance.mysql (expand)" -> "[root] google_service_networking_connection.mysql (expand)"
+		"[root] google_sql_user.shr_test (expand)" -> "[root] google_sql_database_instance.mysql (expand)"
+		"[root] google_sql_user.shr_test (expand)" -> "[root] random_password.db_user (expand)"
+		"[root] google_storage_bucket.function_source (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/google\"]"
+		"[root] google_storage_bucket.function_source (expand)" -> "[root] random_uuid.bucket_suffix (expand)"
+		"[root] google_storage_bucket_object.function_source (expand)" -> "[root] data.archive_file.function_source_archive (expand)"
+		"[root] google_storage_bucket_object.function_source (expand)" -> "[root] google_storage_bucket.function_source (expand)"
+		"[root] google_workflows_workflow.trocco_self_hosted_runner__container_scheduler__service (expand)" -> "[root] google_cloud_run_v2_service.trocco_self_hosted_runner (expand)"
+		"[root] google_workflows_workflow.trocco_self_hosted_runner__container_scheduler__service (expand)" -> "[root] google_service_account.trocco_self_hosted_runner__container_scheduler (expand)"
+		"[root] google_workflows_workflow.trocco_self_hosted_runner__container_scheduler__worker_pool (expand)" -> "[root] google_cloud_run_v2_worker_pool.trocco_self_hosted_runner (expand)"
+		"[root] google_workflows_workflow.trocco_self_hosted_runner__container_scheduler__worker_pool (expand)" -> "[root] google_service_account.trocco_self_hosted_runner__container_scheduler (expand)"
+		"[root] local_sensitive_file.curl_api (expand)" -> "[root] google_api_gateway_gateway.trocco_self_hosted_runner__container_manager_api (expand)"
+		"[root] local_sensitive_file.curl_api (expand)" -> "[root] google_apikeys_key.api_key (expand)"
+		"[root] local_sensitive_file.curl_api (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/local\"]"
+		"[root] local_sensitive_file.db_connection_config (expand)" -> "[root] google_sql_user.shr_test (expand)"
+		"[root] local_sensitive_file.db_connection_config (expand)" -> "[root] local.google_cloud (expand)"
+		"[root] local_sensitive_file.db_connection_config (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/local\"]"
+		"[root] local_sensitive_file.trocco_request_config (expand)" -> "[root] google_api_gateway_gateway.trocco_self_hosted_runner__container_manager_api (expand)"
+		"[root] local_sensitive_file.trocco_request_config (expand)" -> "[root] google_apikeys_key.api_key_restricted (expand)"
+		"[root] local_sensitive_file.trocco_request_config (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/local\"]"
+		"[root] provider[\"registry.terraform.io/hashicorp/archive\"] (close)" -> "[root] data.archive_file.function_source_archive (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google-beta\"] (close)" -> "[root] google_api_gateway_gateway.trocco_self_hosted_runner__container_manager_api (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google-beta\"]" -> "[root] var.default_location"
+		"[root] provider[\"registry.terraform.io/hashicorp/google-beta\"]" -> "[root] var.project_id"
+		"[root] provider[\"registry.terraform.io/hashicorp/google-beta\"]" -> "[root] var.tested_by"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] google_apikeys_key.api_key (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] google_apikeys_key.api_key_restricted (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] google_cloud_scheduler_job.trocco_self_hosted_runner__container_scheduler__service__end (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] google_cloud_scheduler_job.trocco_self_hosted_runner__container_scheduler__service__start (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] google_cloud_scheduler_job.trocco_self_hosted_runner__container_scheduler__worker_pool__end (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] google_cloud_scheduler_job.trocco_self_hosted_runner__container_scheduler__worker_pool__start (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] google_cloudfunctions2_function_iam_member.invoker (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] google_compute_firewall.cloud_run_egress (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] google_compute_firewall.cloud_run_to_cloud_sql (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] google_compute_firewall.deny_all_egress (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] google_compute_route.internet (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] google_compute_router_nat.nat (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] google_project_iam_member.self_hosted_runner__container_manager (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] google_project_iam_member.trocco__artifact_registry_reader (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] google_project_iam_member.trocco_self_hosted_runner__container_manager_api (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] google_project_iam_member.trocco_self_hosted_runner__container_scheduler (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] google_project_iam_member.trocco_self_hosted_runner__container_scheduler__service (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] google_secret_manager_secret_version.trocco_registration_token (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] google_sql_database.shr_test (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] google_sql_user.shr_test (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"]" -> "[root] var.default_location"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"]" -> "[root] var.project_id"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"]" -> "[root] var.tested_by"
+		"[root] provider[\"registry.terraform.io/hashicorp/local\"] (close)" -> "[root] local_sensitive_file.curl_api (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/local\"] (close)" -> "[root] local_sensitive_file.db_connection_config (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/local\"] (close)" -> "[root] local_sensitive_file.trocco_request_config (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/random\"] (close)" -> "[root] random_password.db_user (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/random\"] (close)" -> "[root] random_uuid.bucket_suffix (expand)"
+		"[root] random_password.db_user (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/random\"]"
+		"[root] random_uuid.bucket_suffix (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/random\"]"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/archive\"] (close)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/google-beta\"] (close)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/local\"] (close)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/random\"] (close)"
+	}
+}

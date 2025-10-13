@@ -1,0 +1,50 @@
+digraph {
+	rankdir = "LR"
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] azurerm_container_app.shr_test (expand)" [label = "azurerm_container_app.shr_test", shape = "box"]
+		"[root] azurerm_container_app_environment.shr_test (expand)" [label = "azurerm_container_app_environment.shr_test", shape = "box"]
+		"[root] azurerm_container_group.shr_test (expand)" [label = "azurerm_container_group.shr_test", shape = "box"]
+		"[root] azurerm_log_analytics_workspace.shr_test (expand)" [label = "azurerm_log_analytics_workspace.shr_test", shape = "box"]
+		"[root] azurerm_network_security_group.shr_test (expand)" [label = "azurerm_network_security_group.shr_test", shape = "box"]
+		"[root] azurerm_resource_group.shr_test (expand)" [label = "azurerm_resource_group.shr_test", shape = "box"]
+		"[root] azurerm_resource_provider_registration.container_apps (expand)" [label = "azurerm_resource_provider_registration.container_apps", shape = "box"]
+		"[root] azurerm_subnet.container_apps (expand)" [label = "azurerm_subnet.container_apps", shape = "box"]
+		"[root] azurerm_subnet.container_instances (expand)" [label = "azurerm_subnet.container_instances", shape = "box"]
+		"[root] azurerm_subnet_network_security_group_association.container_apps (expand)" [label = "azurerm_subnet_network_security_group_association.container_apps", shape = "box"]
+		"[root] azurerm_subnet_network_security_group_association.container_instance (expand)" [label = "azurerm_subnet_network_security_group_association.container_instance", shape = "box"]
+		"[root] azurerm_virtual_network.shr_test (expand)" [label = "azurerm_virtual_network.shr_test", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/azurerm\"]" [label = "provider[\"registry.terraform.io/hashicorp/azurerm\"]", shape = "diamond"]
+		"[root] var.azure_subscription_id" [label = "var.azure_subscription_id", shape = "note"]
+		"[root] var.default_location" [label = "var.default_location", shape = "note"]
+		"[root] var.trocco_registration_token" [label = "var.trocco_registration_token", shape = "note"]
+		"[root] var.trocco_shr_image_url" [label = "var.trocco_shr_image_url", shape = "note"]
+		"[root] azurerm_container_app.shr_test (expand)" -> "[root] azurerm_container_app_environment.shr_test (expand)"
+		"[root] azurerm_container_app.shr_test (expand)" -> "[root] var.trocco_registration_token"
+		"[root] azurerm_container_app.shr_test (expand)" -> "[root] var.trocco_shr_image_url"
+		"[root] azurerm_container_app_environment.shr_test (expand)" -> "[root] azurerm_log_analytics_workspace.shr_test (expand)"
+		"[root] azurerm_container_app_environment.shr_test (expand)" -> "[root] azurerm_resource_provider_registration.container_apps (expand)"
+		"[root] azurerm_container_app_environment.shr_test (expand)" -> "[root] azurerm_subnet_network_security_group_association.container_apps (expand)"
+		"[root] azurerm_container_group.shr_test (expand)" -> "[root] azurerm_log_analytics_workspace.shr_test (expand)"
+		"[root] azurerm_container_group.shr_test (expand)" -> "[root] azurerm_subnet_network_security_group_association.container_instance (expand)"
+		"[root] azurerm_container_group.shr_test (expand)" -> "[root] var.trocco_registration_token"
+		"[root] azurerm_container_group.shr_test (expand)" -> "[root] var.trocco_shr_image_url"
+		"[root] azurerm_log_analytics_workspace.shr_test (expand)" -> "[root] azurerm_resource_group.shr_test (expand)"
+		"[root] azurerm_network_security_group.shr_test (expand)" -> "[root] azurerm_resource_group.shr_test (expand)"
+		"[root] azurerm_resource_group.shr_test (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/azurerm\"]"
+		"[root] azurerm_resource_group.shr_test (expand)" -> "[root] var.default_location"
+		"[root] azurerm_resource_provider_registration.container_apps (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/azurerm\"]"
+		"[root] azurerm_subnet.container_apps (expand)" -> "[root] azurerm_virtual_network.shr_test (expand)"
+		"[root] azurerm_subnet.container_instances (expand)" -> "[root] azurerm_virtual_network.shr_test (expand)"
+		"[root] azurerm_subnet_network_security_group_association.container_apps (expand)" -> "[root] azurerm_network_security_group.shr_test (expand)"
+		"[root] azurerm_subnet_network_security_group_association.container_apps (expand)" -> "[root] azurerm_subnet.container_apps (expand)"
+		"[root] azurerm_subnet_network_security_group_association.container_instance (expand)" -> "[root] azurerm_network_security_group.shr_test (expand)"
+		"[root] azurerm_subnet_network_security_group_association.container_instance (expand)" -> "[root] azurerm_subnet.container_instances (expand)"
+		"[root] azurerm_virtual_network.shr_test (expand)" -> "[root] azurerm_resource_group.shr_test (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/azurerm\"] (close)" -> "[root] azurerm_container_app.shr_test (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/azurerm\"] (close)" -> "[root] azurerm_container_group.shr_test (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/azurerm\"]" -> "[root] var.azure_subscription_id"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/azurerm\"] (close)"
+	}
+}

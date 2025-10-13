@@ -1,0 +1,57 @@
+services:
+  fluentd:
+    image: fluent/fluentd:latest
+    volumes:
+      - ./fluent.conf:/fluentd/etc/fluent.conf
+      - ./log:/fluentd/log
+    ports:
+      - "24224:24224"
+    logging:
+      driver: "local"
+      options:
+        max-size: "50m"
+        max-file: "10"
+    networks:
+      - outbound_only
+
+  trocco-self-hosted-runner-normal:
+    image: ${TROCCO_IMAGE_URL}
+    mem_limit: 2G
+    cpus: 2
+    restart: always
+    environment:
+      - TROCCO_REGISTRATION_TOKEN=${TROCCO_REGISTRATION_TOKEN_NORMAL}
+      - TROCCO_PREVIEW_SEND=true
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: "localhost:24224"
+        tag: "trocco-self-hosted-runner-normal.log"
+        fluentd-async: "true"
+    networks:
+      - outbound_only
+    depends_on:
+      - fluentd
+
+  trocco-self-hosted-runner-enhanced:
+    image: ${TROCCO_IMAGE_URL}
+    mem_limit: 4G
+    cpus: 2
+    restart: always
+    environment:
+      - TROCCO_REGISTRATION_TOKEN=${TROCCO_REGISTRATION_TOKEN_ENHANCED}
+      - TROCCO_PREVIEW_SEND=true
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: "localhost:24224"
+        tag: "trocco-self-hosted-runner-enhanced.log"
+        fluentd-async: "true"
+    networks:
+      - outbound_only
+    depends_on:
+      - fluentd
+
+networks:
+  outbound_only:
+    driver: bridge

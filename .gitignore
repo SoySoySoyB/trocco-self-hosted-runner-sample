@@ -1,0 +1,7 @@
+.credential/
+.env
+
+.terraform/
+.terraform.lock.hcl
+*.tfstate*
+terraform.tfvars

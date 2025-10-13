@@ -1,0 +1,119 @@
+# ref: https://terraform-docs.io/user-guide/introduction/
+
+formatter: markdown
+
+sections:
+  show:
+    - data-sources
+    - header
+    - footer
+    - inputs
+    - modules
+    - outputs
+    - providers
+    - requirements
+    - resources
+
+content: |-
+  {{ .Header }}
+
+  {{- if .Module.Requirements }}
+  # Requirements
+
+  | Name | Version |
+  | ---- | ------- |
+    {{- range .Module.Requirements }}
+  | {{ .Name }} | {{ .Version }} |
+    {{- end }}
+
+  {{ end }}
+
+
+  {{- if .Module.Providers }}
+  # Providers
+
+  | Name | Version | Alias |
+  | ---- | ------- | ----- |
+    {{- range .Module.Providers }}
+  | {{ .FullName }} | {{ tostring .Version | default "n/a" }} | {{ tostring .Alias | default "n/a"}} |
+    {{- end }}
+
+  {{ end }}
+
+
+  {{- if .Module.Inputs }}
+  # Inputs
+
+  | Name | description | Type | Required | Default | File |
+  | ---- | ----------- | ---- | -------- | ------- | ---- |
+    {{- range .Module.Inputs }}
+  | {{ .Name }} | {{ .Description }} | `{{ tostring .Type | default "n/a" }}` | {{ if .Required }}{{ "yes" }}{{ else }}{{ "no" }}{{ end }} | {{ printf "%s" .GetValue | default "n/a" }} | [{{ .Position.Filename | replace "\\" "/" }}](/{{ .Position.Filename | replace "\\" "/" }}) |
+    {{- end }}
+
+  {{ end }}
+
+
+  {{- if .Module.ModuleCalls }}
+  # Modules
+
+  | Name | Source | Version | File | Comment |
+  | ---- | ------ | ------- | ---- | ------- |
+    {{- range .Module.ModuleCalls }}
+  | {{ .Name }} | [{{ .Source }}]({{ .Source }}) | {{ printf "%s" .Version | default "n/a" }} | [{{ .Position.Filename | replace "\\" "/" }}](/{{ .Position.Filename | replace "\\" "/" }}) | {{ printf "%s" .Description | default "n/a" }} 
+    {{- end }}
+
+  {{ end }}
+
+
+  {{- if .Module.Resources }}
+  # Resources
+
+  | Type | Name | File | Comment |
+  | ------------ | ---- | ---- | ------- |
+    {{- range .Module.Resources }}
+  | {{ .GetMode }} | [{{ .Spec }}]{{ if .URL }}({{ .URL }}){{ else }}(https://registry.terraform.io/providers/{{ .ProviderSource | replace "registry.terraform.io/" "" }}/{{ .Version }}/docs/){{ end }} | [{{ .Position.Filename | replace "\\" "/" }}](/{{ .Position.Filename | replace "\\" "/" }}) | {{ .Description }} |  
+    {{- end }}
+
+  {{ end }}
+
+
+  {{- if .Module.Outputs }}
+  # Outputs
+
+  | Name | Description | isSensitive | File |
+  | ---- | ----------- | ----------- | ---- |
+    {{- range .Module.Outputs }}
+  | {{ .Name }} | {{ .Description }} | {{ if .Sensitive }}{{ "yes" }}{{ else }}{{ "no" }}{{ end }} | [{{ .Position.Filename | replace "\\" "/" }}](/{{ .Position.Filename | replace "\\" "/" }}) |
+    {{- end }}
+
+  {{- end -}}
+
+
+  # Dependency Graph
+
+  ## Overview
+  ![dependency_graph.jpg](./dependency_graph/dependency_graph.jpg)
+
+  ## Detail
+  ![dependency_graph_plan.jpg](./dependency_graph/dependency_graph_plan.jpg)
+
+  {{- .Footer }}
+
+settings:
+  default: true
+  description: true
+  escape: true
+  hide-empty: true
+  lockfile: true
+  read-comments: true
+  required: true
+  sensitive: true
+  type: true
+
+sort:
+  enabled: true
+  by: name
+
+output:
+  file: README.md
+  mode: inject

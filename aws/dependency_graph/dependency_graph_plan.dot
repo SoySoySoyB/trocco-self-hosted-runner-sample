@@ -1,0 +1,58 @@
+digraph {
+	rankdir = "LR"
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_cloudwatch_log_group.trocco_self_hosted_runner (expand)" [label = "aws_cloudwatch_log_group.trocco_self_hosted_runner", shape = "box"]
+		"[root] aws_ecs_cluster.trocco_self_hosted_runner (expand)" [label = "aws_ecs_cluster.trocco_self_hosted_runner", shape = "box"]
+		"[root] aws_ecs_service.trocco_self_hosted_runner (expand)" [label = "aws_ecs_service.trocco_self_hosted_runner", shape = "box"]
+		"[root] aws_ecs_task_definition.trocco_self_hosted_runner (expand)" [label = "aws_ecs_task_definition.trocco_self_hosted_runner", shape = "box"]
+		"[root] aws_iam_policy.trocco_self_hosted_runner (expand)" [label = "aws_iam_policy.trocco_self_hosted_runner", shape = "box"]
+		"[root] aws_iam_role.trocco_self_hosted_runner (expand)" [label = "aws_iam_role.trocco_self_hosted_runner", shape = "box"]
+		"[root] aws_iam_role_policy_attachment.trocco_self_hosted_runner (expand)" [label = "aws_iam_role_policy_attachment.trocco_self_hosted_runner", shape = "box"]
+		"[root] aws_internet_gateway.trocco_self_hosted_runner (expand)" [label = "aws_internet_gateway.trocco_self_hosted_runner", shape = "box"]
+		"[root] aws_route_table.public (expand)" [label = "aws_route_table.public", shape = "box"]
+		"[root] aws_route_table_association.public (expand)" [label = "aws_route_table_association.public", shape = "box"]
+		"[root] aws_security_group.trocco_self_hosted_runner (expand)" [label = "aws_security_group.trocco_self_hosted_runner", shape = "box"]
+		"[root] aws_ssm_parameter.trocco_registration_token (expand)" [label = "aws_ssm_parameter.trocco_registration_token", shape = "box"]
+		"[root] aws_subnet.trocco_self_hosted_runner (expand)" [label = "aws_subnet.trocco_self_hosted_runner", shape = "box"]
+		"[root] aws_vpc.trocco_self_hosted_runner (expand)" [label = "aws_vpc.trocco_self_hosted_runner", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+		"[root] var.aws_account_id" [label = "var.aws_account_id", shape = "note"]
+		"[root] var.default_region" [label = "var.default_region", shape = "note"]
+		"[root] var.tested_by" [label = "var.tested_by", shape = "note"]
+		"[root] var.trocco_registration_token" [label = "var.trocco_registration_token", shape = "note"]
+		"[root] var.trocco_shr_image_url" [label = "var.trocco_shr_image_url", shape = "note"]
+		"[root] aws_cloudwatch_log_group.trocco_self_hosted_runner (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_ecs_cluster.trocco_self_hosted_runner (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_ecs_service.trocco_self_hosted_runner (expand)" -> "[root] aws_ecs_cluster.trocco_self_hosted_runner (expand)"
+		"[root] aws_ecs_service.trocco_self_hosted_runner (expand)" -> "[root] aws_ecs_task_definition.trocco_self_hosted_runner (expand)"
+		"[root] aws_ecs_service.trocco_self_hosted_runner (expand)" -> "[root] aws_security_group.trocco_self_hosted_runner (expand)"
+		"[root] aws_ecs_service.trocco_self_hosted_runner (expand)" -> "[root] aws_subnet.trocco_self_hosted_runner (expand)"
+		"[root] aws_ecs_task_definition.trocco_self_hosted_runner (expand)" -> "[root] aws_cloudwatch_log_group.trocco_self_hosted_runner (expand)"
+		"[root] aws_ecs_task_definition.trocco_self_hosted_runner (expand)" -> "[root] aws_iam_role.trocco_self_hosted_runner (expand)"
+		"[root] aws_ecs_task_definition.trocco_self_hosted_runner (expand)" -> "[root] aws_ssm_parameter.trocco_registration_token (expand)"
+		"[root] aws_ecs_task_definition.trocco_self_hosted_runner (expand)" -> "[root] var.trocco_shr_image_url"
+		"[root] aws_iam_policy.trocco_self_hosted_runner (expand)" -> "[root] aws_cloudwatch_log_group.trocco_self_hosted_runner (expand)"
+		"[root] aws_iam_policy.trocco_self_hosted_runner (expand)" -> "[root] aws_ssm_parameter.trocco_registration_token (expand)"
+		"[root] aws_iam_policy.trocco_self_hosted_runner (expand)" -> "[root] var.aws_account_id"
+		"[root] aws_iam_role.trocco_self_hosted_runner (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_iam_role_policy_attachment.trocco_self_hosted_runner (expand)" -> "[root] aws_iam_policy.trocco_self_hosted_runner (expand)"
+		"[root] aws_iam_role_policy_attachment.trocco_self_hosted_runner (expand)" -> "[root] aws_iam_role.trocco_self_hosted_runner (expand)"
+		"[root] aws_internet_gateway.trocco_self_hosted_runner (expand)" -> "[root] aws_vpc.trocco_self_hosted_runner (expand)"
+		"[root] aws_route_table.public (expand)" -> "[root] aws_internet_gateway.trocco_self_hosted_runner (expand)"
+		"[root] aws_route_table_association.public (expand)" -> "[root] aws_route_table.public (expand)"
+		"[root] aws_route_table_association.public (expand)" -> "[root] aws_subnet.trocco_self_hosted_runner (expand)"
+		"[root] aws_security_group.trocco_self_hosted_runner (expand)" -> "[root] aws_vpc.trocco_self_hosted_runner (expand)"
+		"[root] aws_ssm_parameter.trocco_registration_token (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_ssm_parameter.trocco_registration_token (expand)" -> "[root] var.trocco_registration_token"
+		"[root] aws_subnet.trocco_self_hosted_runner (expand)" -> "[root] aws_vpc.trocco_self_hosted_runner (expand)"
+		"[root] aws_vpc.trocco_self_hosted_runner (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_ecs_service.trocco_self_hosted_runner (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_role_policy_attachment.trocco_self_hosted_runner (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.public (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" -> "[root] var.default_region"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" -> "[root] var.tested_by"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+	}
+}

@@ -1,0 +1,20 @@
+# `pip install pre-commit` and `pre-commit install` to enable this configuration
+# `git commit --no-verify` to avoid pre-commit hooks
+repos:
+  - repo: local
+    hooks:
+      - id: prettier
+        name: prettier
+        entry: npx prettier --write
+        language: system
+        files: \.(js|ts|jsx|tsx|html|htm|xml|svg|css|scss|md|json|jsonc|yaml|yml|toml)$
+      - id: gofmt
+        name: gofmt
+        entry: gofmt -w
+        language: system
+        files: \.go$
+      - id: terraform_fmt
+        name: terraform_fmt
+        entry: terraform fmt
+        language: system
+        files: \.tf$

@@ -1,0 +1,4 @@
+functions-framework
+google-auth
+google-cloud-logging
+requests
