@@ -87,4 +87,4 @@ Qiitaで解説記事[「TROCCO Self-Hosted Runnerの運用構成を整理する�
 
 ## Oracle Cloud
 
-- Container Instanceを使ってSelf-Hosted Runnerを最小構成で構築するサンプルコードです。
+- Container Instancesを使ってSelf-Hosted Runnerを最小構成で構築するサンプルコードです。
