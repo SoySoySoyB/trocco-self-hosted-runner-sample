@@ -390,6 +390,10 @@ resource "google_cloud_run_v2_job" "trocco_self_hosted_runner" {
           name  = "TROCCO_PREVIEW_SEND"
           value = "true"
         }
+        env { # JOB実行後にコンテナを自動停止するための設定
+          name  = "TROCCO_ONESHOT"
+          value = "true"
+        }
         env {
           name = "TROCCO_REGISTRATION_TOKEN"
           value_source {
