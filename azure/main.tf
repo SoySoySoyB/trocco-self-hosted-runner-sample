@@ -28,9 +28,15 @@ variable "trocco_shr_image_url" {
   description = "TROCCO Self-Hosted-RunnerのコンテナイメージURL"
 }
 
-variable "trocco_registration_token" {
+variable "trocco_registration_token_container_instances" {
   type        = string
-  description = "TROCCO Self-Hosted-RunnerのRegistration Token"
+  description = "Container Instances用のTROCCO Self-Hosted-RunnerのRegistration Token"
+  sensitive   = true
+}
+
+variable "trocco_registration_token_container_apps" {
+  type        = string
+  description = "Container Apps用のTROCCO Self-Hosted-RunnerのRegistration Token"
   sensitive   = true
 }
 
@@ -96,14 +102,6 @@ resource "azurerm_log_analytics_workspace" "shr_test" {
 
 /*
 - Container Instanceの設定
-- 動作上は問題ないが、コンソールで実行ログが確認しにくく、以下のコマンドを実行するかクエリを実行する必要がある
-
-az container logs --resource-group shr-test --name shr-test --container-name shr-test
-      
-{"time":"2025-10-11T09:04:18.606168407Z","level":"INFO","msg":"Starting self-hosted runner...","version":"v0.0.30"}
-{"time":"2025-10-11T09:04:18.611448511Z","level":"INFO","msg":"Loaded config successfully"}
-{"time":"2025-10-11T09:04:18.611721309Z","level":"WARN","msg":"failed to get heap size, use default heap setting: cgroup v1 is not supported now: failed to read cgroup v2 memory.max: cgroup v2 is not enabled: open /sys/fs/cgroup/memory.max: no such file or directory"}
-{"time":"2025-10-11T09:04:19.269433529Z","level":"INFO","msg":"Joined cluster successfully","runnerID":465}
 */
 
 # Container Instances用サブネット
@@ -131,29 +129,30 @@ resource "azurerm_subnet_network_security_group_association" "container_instance
 }
 
 # Container Instances
+# ip_address_type = "None"でports未指定でもデプロイ可能だが、サブネットを指定できないのでアウトバウンドネットワークの制御ができないと思われる
 resource "azurerm_container_group" "shr_test" {
   name                = "shr-test"
   location            = azurerm_resource_group.shr_test.location
   resource_group_name = azurerm_resource_group.shr_test.name
-  ip_address_type     = "Private"
   os_type             = "Linux"
   restart_policy      = "Always"
-  subnet_ids          = [azurerm_subnet.container_instance.id]
+  ip_address_type     = "Private" # サブネットを指定しようとするとNoneは指定できない
+  subnet_ids          = [azurerm_subnet.container_instances.id]
 
   container {
     name   = "shr-test"
     image  = "${var.trocco_shr_image_url}:latest"
     cpu    = "2"
     memory = "2"
-    ports {
-      port     = 443
+    ports {           # ip_address_type = "None"ではない場合は、ポートの指定が必須; performing ContainerGroupsCreateOrUpdate: unexpected status 400 (400 Bad Request) with error: MissingIpAddressPorts: The ports in the 'ipAddress' of container group 'shr-test' cannot be empty.
+      port     = 8080 # 任意のポート
       protocol = "TCP"
     }
     environment_variables = {
       TROCCO_PREVIEW_SEND = "true"
     }
     secure_environment_variables = {
-      TROCCO_REGISTRATION_TOKEN = var.trocco_registration_token
+      TROCCO_REGISTRATION_TOKEN = var.trocco_registration_token_container_instances
     }
   }
   diagnostics {
@@ -240,6 +239,6 @@ resource "azurerm_container_app" "shr_test" {
   }
   secret {
     name  = "trocco-registration-token"
-    value = var.trocco_registration_token
+    value = var.trocco_registration_token_container_apps
   }
 }
