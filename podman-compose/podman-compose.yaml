@@ -1,0 +1,36 @@
+services:
+  trocco-self-hosted-runner-normal:
+    image: ${TROCCO_IMAGE_URL}:latest
+    mem_limit: 2G
+    cpus: 2
+    restart: always
+    environment:
+      - TROCCO_REGISTRATION_TOKEN=${TROCCO_REGISTRATION_TOKEN_NORMAL}
+      - TROCCO_PREVIEW_SEND=true
+    logging:
+      driver: "journald"
+      options:
+        max-size: "50m"
+        max-file: "10"
+    networks:
+      - outbound_only
+
+  trocco-self-hosted-runner-enhanced:
+    image: ${TROCCO_IMAGE_URL}:latest
+    mem_limit: 4G
+    cpus: 2
+    restart: always
+    environment:
+      - TROCCO_REGISTRATION_TOKEN=${TROCCO_REGISTRATION_TOKEN_ENHANCED}
+      - TROCCO_PREVIEW_SEND=true
+    logging:
+      driver: "journald"
+      options:
+        max-size: "50m"
+        max-file: "10"
+    networks:
+      - outbound_only
+
+networks:
+  outbound_only:
+    driver: bridge
